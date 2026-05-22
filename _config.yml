@@ -1,0 +1,6 @@
+title: "Bingzhen Li"
+description: "Academic portfolio built with Jekyll"
+baseurl: ""
+url: ""
+markdown: kramdown
+theme: minima

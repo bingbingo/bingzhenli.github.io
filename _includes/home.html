@@ -1,0 +1,77 @@
+{% assign profile = site.data.profile %}
+
+<section class="hero section-pad" id="about">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Academic Portfolio</p>
+      <h1>{{ site.title }}</h1>
+      <p class="lead">{{ profile.tagline }}</p>
+      <p class="body-copy">{{ profile.description }}</p>
+
+      <div class="callout">
+        <p>
+          Contact: <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+        </p>
+      </div>
+
+      <div class="action-row">
+        <a class="button primary" href="mailto:{{ profile.email }}">Email</a>
+        {% if profile.scholar %}
+        <a
+          class="button"
+          href="{{ profile.scholar }}"
+          target="_blank"
+          rel="noreferrer"
+          >Google Scholar</a
+        >
+        {% endif %} {% if profile.github %}
+        <a
+          class="button"
+          href="{{ profile.github }}"
+          target="_blank"
+          rel="noreferrer"
+          >GitHub</a
+        >
+        {% endif %}
+        <a class="button" href="#publications">Publications</a>
+      </div>
+    </div>
+
+    <div class="hero-aside">
+      <div class="portrait-card">
+        <div
+          class="portrait-art{% if profile.image %} portrait-art--image{% endif %}"
+        >
+          {% if profile.image %}
+          <img
+            class="portrait-img"
+            src="{{ profile.image }}"
+            alt="{{ profile.position }}"
+          />
+          {% else %}
+          <div class="portrait-initials">{{ profile.initials }}</div>
+          {% endif %}
+        </div>
+        <div class="portrait-meta">
+          <h2>{{ profile.position }}</h2>
+          <p>{{ profile.short }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include projects.html %} {% include publications.html %} {% include
+awards.html %}
+
+<section class="section-pad" id="service">
+  <div class="container split-layout">
+    <div class="section-heading compact">
+      <p class="section-kicker">Community</p>
+      <h2>Academic Services</h2>
+    </div>
+    <div class="service-panel">
+      <p>{{ profile.service }}</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+{% assign awards = site.data.awards %}
+
+<section class="section-pad section-alt" id="awards">
+  <div class="container split-layout">
+    <div class="section-heading compact">
+      <p class="section-kicker">Recognition</p>
+      <h2>Honors &amp; Awards</h2>
+    </div>
+
+    <ul class="list-stack">
+      {% for award in awards %}
+      <li>
+        <strong>{{ award.year }}</strong> {{ award.title }}{% if award.note %} —
+        {{ award.note }}{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+{% assign publications = site.data.publications | sort: 'year' | reverse %}
+
+<section class="section-pad" id="publications">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-kicker">Selected Output</p>
+      <h2>Publications</h2>
+    </div>
+
+    <div class="timeline">
+      {% for publication in publications %}
+      <article class="timeline-item">
+        <div class="timeline-year">{{ publication.year }}</div>
+        <div>
+          <h3>{{ publication.title }}</h3>
+          <p>
+            {{ publication.authors }}. <em>{{ publication.venue }}</em>{% if
+            publication.note %} — {{ publication.note }}{% endif %}.
+          </p>
+          <p>
+            {% if publication.pdf %}<a
+              href="{{ publication.pdf }}"
+              target="_blank"
+              rel="noreferrer"
+              >PDF</a
+            >{% endif %} {% if publication.code %} •
+            <a href="{{ publication.code }}" target="_blank" rel="noreferrer"
+              >Code</a
+            >{% endif %} {% if publication.dataset %} •
+            <a href="{{ publication.dataset }}" target="_blank" rel="noreferrer"
+              >Dataset</a
+            >{% endif %}
+          </p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
