@@ -8,5 +8,13 @@
 </p>
 
 <p>bingzhen-li</p>
-<!-- 显示当前时间 -->
-<p>{{ site.time }}</p>
+<p><time id="current-time"></time></p>
+
+<script>
+  function updateTime() {
+    const now = new Date();
+    document.getElementById("current-time").innerText = now.toLocaleString();
+  }
+  setInterval(updateTime, 1000); // 每秒更新一次
+  updateTime();
+</script>
